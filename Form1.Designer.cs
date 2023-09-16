@@ -47,12 +47,12 @@
             panel3 = new Panel();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            tpFin = new TabPage();
             cbFiltro = new ComboBox();
             checkBox1 = new CheckBox();
             button4 = new Button();
             button3 = new Button();
-            button2 = new Button();
+            btnIns = new Button();
             dataGridView1 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             TIPO = new DataGridViewTextBoxColumn();
@@ -62,16 +62,16 @@
             ALTERACAO = new DataGridViewTextBoxColumn();
             USUARIO = new DataGridViewTextBoxColumn();
             label11 = new Label();
-            dateTimePicker2 = new DateTimePicker();
+            dtpFin = new DateTimePicker();
             label6 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            textBox8 = new TextBox();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            dtpIni = new DateTimePicker();
+            txtDes = new TextBox();
+            txtEve = new TextBox();
+            txtCultD = new TextBox();
+            txtCultQ = new TextBox();
+            txtDiz = new TextBox();
+            txtTotSai = new TextBox();
+            txtTotEn = new TextBox();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -90,7 +90,7 @@
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             tabControl1.SuspendLayout();
-            tabPage2.SuspendLayout();
+            tpFin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -316,7 +316,7 @@
             // 
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tpFin);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Location = new Point(-1, -33);
             tabControl1.Name = "tabControl1";
@@ -335,44 +335,44 @@
             tabPage1.Size = new Size(1202, 645);
             tabPage1.TabIndex = 0;
             // 
-            // tabPage2
+            // tpFin
             // 
-            tabPage2.Controls.Add(cbFiltro);
-            tabPage2.Controls.Add(checkBox1);
-            tabPage2.Controls.Add(button4);
-            tabPage2.Controls.Add(button3);
-            tabPage2.Controls.Add(button2);
-            tabPage2.Controls.Add(dataGridView1);
-            tabPage2.Controls.Add(label11);
-            tabPage2.Controls.Add(dateTimePicker2);
-            tabPage2.Controls.Add(label6);
-            tabPage2.Controls.Add(dateTimePicker1);
-            tabPage2.Controls.Add(textBox8);
-            tabPage2.Controls.Add(textBox7);
-            tabPage2.Controls.Add(textBox6);
-            tabPage2.Controls.Add(textBox5);
-            tabPage2.Controls.Add(textBox3);
-            tabPage2.Controls.Add(textBox2);
-            tabPage2.Controls.Add(textBox1);
-            tabPage2.Controls.Add(label10);
-            tabPage2.Controls.Add(label9);
-            tabPage2.Controls.Add(label8);
-            tabPage2.Controls.Add(label7);
-            tabPage2.Controls.Add(label5);
-            tabPage2.Controls.Add(label4);
-            tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(label2);
-            tabPage2.Location = new Point(4, 27);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1202, 645);
-            tabPage2.TabIndex = 1;
-            tabPage2.UseVisualStyleBackColor = true;
+            tpFin.Controls.Add(cbFiltro);
+            tpFin.Controls.Add(checkBox1);
+            tpFin.Controls.Add(button4);
+            tpFin.Controls.Add(button3);
+            tpFin.Controls.Add(btnIns);
+            tpFin.Controls.Add(dataGridView1);
+            tpFin.Controls.Add(label11);
+            tpFin.Controls.Add(dtpFin);
+            tpFin.Controls.Add(label6);
+            tpFin.Controls.Add(dtpIni);
+            tpFin.Controls.Add(txtDes);
+            tpFin.Controls.Add(txtEve);
+            tpFin.Controls.Add(txtCultD);
+            tpFin.Controls.Add(txtCultQ);
+            tpFin.Controls.Add(txtDiz);
+            tpFin.Controls.Add(txtTotSai);
+            tpFin.Controls.Add(txtTotEn);
+            tpFin.Controls.Add(label10);
+            tpFin.Controls.Add(label9);
+            tpFin.Controls.Add(label8);
+            tpFin.Controls.Add(label7);
+            tpFin.Controls.Add(label5);
+            tpFin.Controls.Add(label4);
+            tpFin.Controls.Add(label3);
+            tpFin.Controls.Add(label2);
+            tpFin.Location = new Point(4, 27);
+            tpFin.Name = "tpFin";
+            tpFin.Padding = new Padding(3);
+            tpFin.Size = new Size(1202, 645);
+            tpFin.TabIndex = 1;
+            tpFin.UseVisualStyleBackColor = true;
             // 
             // cbFiltro
             // 
             cbFiltro.FormattingEnabled = true;
-            cbFiltro.Items.AddRange(new object[] { "Entradas", "Saidas", "Quarta Fire", "Domingo" });
+            cbFiltro.Items.AddRange(new object[] { "VAZIO", "ENTRADAS", "SAIDAS", "CULTOS", "EVENTOS" });
             cbFiltro.Location = new Point(1010, 551);
             cbFiltro.Name = "cbFiltro";
             cbFiltro.Size = new Size(160, 23);
@@ -405,17 +405,18 @@
             button3.Name = "button3";
             button3.Size = new Size(228, 32);
             button3.TabIndex = 24;
-            button3.Text = "Inserir";
+            button3.Text = "Alterar";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnIns
             // 
-            button2.Location = new Point(140, 545);
-            button2.Name = "button2";
-            button2.Size = new Size(228, 32);
-            button2.TabIndex = 23;
-            button2.Text = "Inserir";
-            button2.UseVisualStyleBackColor = true;
+            btnIns.Location = new Point(140, 545);
+            btnIns.Name = "btnIns";
+            btnIns.Size = new Size(228, 32);
+            btnIns.TabIndex = 23;
+            btnIns.Text = "Inserir";
+            btnIns.UseVisualStyleBackColor = true;
+            btnIns.Click += button2_Click;
             // 
             // dataGridView1
             // 
@@ -475,15 +476,16 @@
             label11.TabIndex = 21;
             label11.Text = "até";
             // 
-            // dateTimePicker2
+            // dtpFin
             // 
-            dateTimePicker2.CustomFormat = "";
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(1072, 95);
-            dateTimePicker2.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(82, 23);
-            dateTimePicker2.TabIndex = 20;
+            dtpFin.Cursor = Cursors.Hand;
+            dtpFin.CustomFormat = "";
+            dtpFin.Format = DateTimePickerFormat.Short;
+            dtpFin.Location = new Point(1072, 95);
+            dtpFin.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
+            dtpFin.Name = "dtpFin";
+            dtpFin.Size = new Size(82, 23);
+            dtpFin.TabIndex = 20;
             // 
             // label6
             // 
@@ -494,64 +496,86 @@
             label6.TabIndex = 19;
             label6.Text = "Periodo de";
             // 
-            // dateTimePicker1
+            // dtpIni
             // 
-            dateTimePicker1.CustomFormat = "";
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(955, 95);
-            dateTimePicker1.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(82, 23);
-            dateTimePicker1.TabIndex = 18;
+            dtpIni.Cursor = Cursors.Hand;
+            dtpIni.CustomFormat = "";
+            dtpIni.Format = DateTimePickerFormat.Short;
+            dtpIni.Location = new Point(955, 95);
+            dtpIni.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
+            dtpIni.Name = "dtpIni";
+            dtpIni.Size = new Size(82, 23);
+            dtpIni.TabIndex = 18;
             // 
-            // textBox8
+            // txtDes
             // 
-            textBox8.Location = new Point(788, 95);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(80, 23);
-            textBox8.TabIndex = 16;
+            txtDes.BackColor = SystemColors.InactiveCaption;
+            txtDes.Cursor = Cursors.No;
+            txtDes.Enabled = false;
+            txtDes.Location = new Point(788, 95);
+            txtDes.Name = "txtDes";
+            txtDes.Size = new Size(80, 23);
+            txtDes.TabIndex = 16;
             // 
-            // textBox7
+            // txtEve
             // 
-            textBox7.Location = new Point(701, 95);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(80, 23);
-            textBox7.TabIndex = 15;
+            txtEve.BackColor = SystemColors.InactiveCaption;
+            txtEve.Cursor = Cursors.No;
+            txtEve.Enabled = false;
+            txtEve.Location = new Point(701, 95);
+            txtEve.Name = "txtEve";
+            txtEve.Size = new Size(80, 23);
+            txtEve.TabIndex = 15;
             // 
-            // textBox6
+            // txtCultD
             // 
-            textBox6.Location = new Point(533, 95);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(133, 23);
-            textBox6.TabIndex = 14;
+            txtCultD.BackColor = SystemColors.InactiveCaption;
+            txtCultD.Cursor = Cursors.No;
+            txtCultD.Enabled = false;
+            txtCultD.Location = new Point(533, 95);
+            txtCultD.Name = "txtCultD";
+            txtCultD.Size = new Size(133, 23);
+            txtCultD.TabIndex = 14;
             // 
-            // textBox5
+            // txtCultQ
             // 
-            textBox5.Location = new Point(411, 95);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(116, 23);
-            textBox5.TabIndex = 13;
+            txtCultQ.BackColor = SystemColors.InactiveCaption;
+            txtCultQ.Cursor = Cursors.No;
+            txtCultQ.Enabled = false;
+            txtCultQ.Location = new Point(411, 95);
+            txtCultQ.Name = "txtCultQ";
+            txtCultQ.Size = new Size(116, 23);
+            txtCultQ.TabIndex = 13;
             // 
-            // textBox3
+            // txtDiz
             // 
-            textBox3.Location = new Point(276, 95);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(129, 23);
-            textBox3.TabIndex = 11;
+            txtDiz.BackColor = SystemColors.InactiveCaption;
+            txtDiz.Cursor = Cursors.No;
+            txtDiz.Enabled = false;
+            txtDiz.Location = new Point(276, 95);
+            txtDiz.Name = "txtDiz";
+            txtDiz.Size = new Size(129, 23);
+            txtDiz.TabIndex = 11;
             // 
-            // textBox2
+            // txtTotSai
             // 
-            textBox2.Location = new Point(140, 95);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(80, 23);
-            textBox2.TabIndex = 10;
+            txtTotSai.BackColor = SystemColors.InactiveCaption;
+            txtTotSai.Cursor = Cursors.No;
+            txtTotSai.Enabled = false;
+            txtTotSai.Location = new Point(140, 95);
+            txtTotSai.Name = "txtTotSai";
+            txtTotSai.Size = new Size(80, 23);
+            txtTotSai.TabIndex = 10;
             // 
-            // textBox1
+            // txtTotEn
             // 
-            textBox1.Location = new Point(54, 95);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(80, 23);
-            textBox1.TabIndex = 9;
+            txtTotEn.BackColor = SystemColors.InactiveCaption;
+            txtTotEn.Cursor = Cursors.No;
+            txtTotEn.Enabled = false;
+            txtTotEn.Location = new Point(54, 95);
+            txtTotEn.Name = "txtTotEn";
+            txtTotEn.Size = new Size(80, 23);
+            txtTotEn.TabIndex = 9;
             // 
             // label10
             // 
@@ -649,6 +673,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Comunidade Kingdom";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -659,8 +684,8 @@
             panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            tpFin.ResumeLayout(false);
+            tpFin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -683,17 +708,17 @@
         private Button button1;
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage tpFin;
         private TabPage tabPage3;
         private Button btnHome;
         private Label label2;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtDes;
+        private TextBox txtEve;
+        private TextBox txtCultD;
+        private TextBox txtCultQ;
+        private TextBox txtDiz;
+        private TextBox txtTotSai;
+        private TextBox txtTotEn;
         private Label label10;
         private Label label9;
         private Label label8;
@@ -701,13 +726,13 @@
         private Label label5;
         private Label label4;
         private Label label3;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpIni;
         private Button button4;
         private Button button3;
-        private Button button2;
+        private Button btnIns;
         private DataGridView dataGridView1;
         private Label label11;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtpFin;
         private Label label6;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn TIPO;

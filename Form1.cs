@@ -44,5 +44,19 @@ namespace CKFinance
                 cbFiltro.Visible = false;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FinMenu finMenu = new FinMenu();
+            finMenu.Show();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string hexColor = "#7bb4e3";
+            Color myColor = System.Drawing.ColorTranslator.FromHtml(hexColor);
+
+        }
     }
 }
