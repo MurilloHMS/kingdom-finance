@@ -247,6 +247,7 @@
             btnMi.Size = new Size(244, 111);
             btnMi.TabIndex = 0;
             btnMi.UseVisualStyleBackColor = false;
+            btnMi.Click += btnMi_Click;
             // 
             // panel5
             // 

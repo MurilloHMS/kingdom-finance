@@ -16,3 +16,4 @@ C:\Users\Murillo\projects\CKFinance\obj\Debug\net6.0-windows\CKFinance.genruntim
 C:\Users\Murillo\projects\CKFinance\obj\Debug\net6.0-windows\ref\CKFinance.dll
 C:\Users\Murillo\projects\CKFinance\obj\Debug\net6.0-windows\CKFinance.Properties.Resources.resources
 C:\Users\Murillo\projects\CKFinance\obj\Debug\net6.0-windows\CKFinance.FinMenu.resources
+C:\Users\Murillo\projects\CKFinance\obj\Debug\net6.0-windows\CKFinance.Midias.resources

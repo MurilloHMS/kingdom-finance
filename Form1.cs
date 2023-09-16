@@ -58,5 +58,11 @@ namespace CKFinance
             Color myColor = System.Drawing.ColorTranslator.FromHtml(hexColor);
 
         }
+
+        private void btnMi_Click(object sender, EventArgs e)
+        {
+            Midias midias = new Midias();
+            midias.Show();
+        }
     }
 }
