@@ -26,5 +26,23 @@ namespace CKFinance
         {
             tabControl1.SelectedTab = tabControl1.TabPages[0];
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                cbFiltro.Visible = true;
+
+            }
+            else
+            {
+                cbFiltro.Visible = false;
+            }
+        }
     }
 }
