@@ -30,6 +30,11 @@ namespace CKFinance
 
         private void button2_Click(object sender, EventArgs e)
         {
+            limpar();
+        }
+
+        public void limpar()
+        {
             txtId.Text = null;
             txtVlr.Text = null;
             cbCulEve.Text = null;
@@ -39,6 +44,8 @@ namespace CKFinance
             rdEve.Checked = false;
             lblDes.Text = "DESCRIÇÃO";
             txtbDes.Text = null;
+            rdUsoInt.Checked = false;
+            cbTipo.Text = null;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -51,6 +58,7 @@ namespace CKFinance
             lblDes.Text = "DESCRIÇÃO CULTO";
             cbCulEve.Enabled = true;
             cbCulEve.BackColor = SystemColors.Control;
+            cbTipo.Enabled = false;
         }
         private void rdEve_CheckedChanged(object sender, EventArgs e)
         {
@@ -58,6 +66,7 @@ namespace CKFinance
             cbCulEve.Enabled = false;
             cbCulEve.BackColor = SystemColors.ActiveCaption;
             cbCulEve.Text = null;
+            cbTipo.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,11 +75,14 @@ namespace CKFinance
 
             string id = txtId.Text;
             string entSai = null;
-            string Culto = cbCulEve.Text;
+            string culto = cbCulEve.Text;
             string tipo = null;
             decimal valor = Convert.ToDecimal(txtVlr.Text);
             DateTime date = DateTime.Now;
+            var sqlFormattedDate = date.ToString(@"yyyy-MM-dd HH:mm:ss");
+            
             string des = txtbDes.Text;
+            string mov = cbTipo.Text;
 
             if (rdEnt.Checked == true)
             {
@@ -89,13 +101,28 @@ namespace CKFinance
             {
                 tipo = rdEve.Text;
             }
+            else if (rdUsoInt.Checked == true) 
+            { 
+                tipo = rdUsoInt.Text;
+            }
+            string query;
 
+            if ((culto == "") || (culto == null) || culto == string.Empty)
+            {
+                culto = "null";
+            }
 
-            MessageBox.Show(id + entSai + Culto + tipo + valor + date + des, "dados", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            /*
-            string query = null;
-            functions.query(query);
-            */
+            query = "INSERT INTO Financeiro VALUES(" + valor + "," + culto + ",'" + entSai + "','" + tipo + "','" + mov + "','" + sqlFormattedDate + "'," + "null" + ",'" + "KINGDOM" + "','" + "KINGDOM" + "','" + des + "');";
+            
+
+            DialogResult dialogResult = MessageBox.Show("Deseja inserir os seguintes dados:\n\n" + "Tipo: " + tipo + "\nTipo Movimentação: " + mov + "\nEntrada/Saida: " + entSai
+                            + "\nDia Do Culto: " + culto + "\nValor: " + valor + "\nData entrada: " + sqlFormattedDate + "\nDescrição: " + des , "dados", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           
+            if (dialogResult == DialogResult.Yes)
+            {
+                functions.query(query);
+            }
+            
         }
 
         private void txtVlr_KeyPress(object sender, KeyPressEventArgs e)
@@ -105,6 +132,31 @@ namespace CKFinance
             */
         }
 
+        private void rdUsoInt_Click(object sender, EventArgs e)
+        {
+            if (rdSai.Checked == true)
+            {
+                cbTipo.Enabled = true;
+            }
+            cbTipo.BackColor = SystemColors.Control;
+            lblDes.Text = "DESCRIÇÃO USO INTERNO";
+        }
 
+        private void rdEnt_Click(object sender, EventArgs e)
+        {
+            if ((!rdSai.Checked) && rdUsoInt.Checked)
+            {
+                cbTipo.Enabled = false;
+                cbTipo.Text = string.Empty;
+            }
+        }
+
+        private void rdSai_Click(object sender, EventArgs e)
+        {
+            if ((rdSai.Checked == true) && rdUsoInt.Checked)
+            {
+                cbTipo.Enabled = true;
+            }
+        }
     }
 }

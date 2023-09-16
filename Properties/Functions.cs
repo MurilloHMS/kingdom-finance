@@ -43,32 +43,6 @@ namespace CKFinance.Properties
             }
         }
 
-        public SqlConnection selectQuery(string query)
-        {
-            string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Murillo\\projects\\CKFinance\\CkFinance.mdf;Integrated Security=True";
-            string queryString = query;
-            SqlConnection con = null;
-
-            try
-            {
-                con = new SqlConnection(connection);
-                con.Open();                
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (con != null)
-                    con.Close();
-
-            }
-            return con;
-
-        }
-
        public void IntNumber(KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 )

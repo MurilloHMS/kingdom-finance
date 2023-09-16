@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinMenu));
             panel1 = new Panel();
+            label5 = new Label();
             button5 = new Button();
             pictureBox1 = new PictureBox();
             label1 = new Label();
@@ -46,9 +47,12 @@
             rdCult = new RadioButton();
             panel2 = new Panel();
             panel3 = new Panel();
+            rdUsoInt = new RadioButton();
             lblDes = new Label();
             txtbDes = new TextBox();
             txtVlr = new TextBox();
+            cbTipo = new ComboBox();
+            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -58,13 +62,25 @@
             // panel1
             // 
             panel1.BackColor = Color.Black;
+            panel1.Controls.Add(label5);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(331, 44);
+            panel1.Size = new Size(339, 44);
             panel1.TabIndex = 1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Stretch Pro", 11.2499981F, FontStyle.Italic, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(89, 14);
+            label5.Name = "label5";
+            label5.Size = new Size(168, 20);
+            label5.TabIndex = 27;
+            label5.Text = "FINANCEIROO";
             // 
             // button5
             // 
@@ -75,7 +91,7 @@
             button5.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.Location = new Point(280, 9);
+            button5.Location = new Point(290, 9);
             button5.Name = "button5";
             button5.Size = new Size(53, 32);
             button5.TabIndex = 26;
@@ -95,7 +111,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(52, 72);
+            label1.Location = new Point(52, 47);
             label1.Name = "label1";
             label1.Size = new Size(18, 15);
             label1.TabIndex = 2;
@@ -103,7 +119,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(28, 269);
+            button1.Location = new Point(41, 269);
             button1.Name = "button1";
             button1.Size = new Size(72, 25);
             button1.TabIndex = 3;
@@ -113,7 +129,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(23, 90);
+            txtId.Location = new Point(23, 65);
             txtId.Name = "txtId";
             txtId.Size = new Size(77, 23);
             txtId.TabIndex = 4;
@@ -157,6 +173,7 @@
             rdEnt.TabStop = true;
             rdEnt.Text = "ENTRADA";
             rdEnt.UseVisualStyleBackColor = true;
+            rdEnt.Click += rdEnt_Click;
             // 
             // rdSai
             // 
@@ -168,10 +185,11 @@
             rdSai.TabStop = true;
             rdSai.Text = "SAIDA";
             rdSai.UseVisualStyleBackColor = true;
+            rdSai.Click += rdSai_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(106, 269);
+            button2.Location = new Point(119, 269);
             button2.Name = "button2";
             button2.Size = new Size(72, 25);
             button2.TabIndex = 11;
@@ -181,7 +199,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(184, 269);
+            button3.Location = new Point(197, 269);
             button3.Name = "button3";
             button3.Size = new Size(82, 25);
             button3.TabIndex = 12;
@@ -192,7 +210,7 @@
             // rdEve
             // 
             rdEve.AutoSize = true;
-            rdEve.Location = new Point(71, 2);
+            rdEve.Location = new Point(81, 3);
             rdEve.Name = "rdEve";
             rdEve.Size = new Size(67, 19);
             rdEve.TabIndex = 14;
@@ -217,19 +235,32 @@
             // 
             panel2.Controls.Add(rdEnt);
             panel2.Controls.Add(rdSai);
-            panel2.Location = new Point(23, 119);
+            panel2.Location = new Point(163, 147);
             panel2.Name = "panel2";
             panel2.Size = new Size(148, 26);
             panel2.TabIndex = 15;
             // 
             // panel3
             // 
+            panel3.Controls.Add(rdUsoInt);
             panel3.Controls.Add(rdCult);
             panel3.Controls.Add(rdEve);
-            panel3.Location = new Point(173, 119);
+            panel3.Location = new Point(27, 100);
             panel3.Name = "panel3";
-            panel3.Size = new Size(148, 26);
+            panel3.Size = new Size(284, 26);
             panel3.TabIndex = 16;
+            // 
+            // rdUsoInt
+            // 
+            rdUsoInt.AutoSize = true;
+            rdUsoInt.Location = new Point(170, 3);
+            rdUsoInt.Name = "rdUsoInt";
+            rdUsoInt.Size = new Size(100, 19);
+            rdUsoInt.TabIndex = 22;
+            rdUsoInt.TabStop = true;
+            rdUsoInt.Text = "USO INTERNO";
+            rdUsoInt.UseVisualStyleBackColor = true;
+            rdUsoInt.Click += rdUsoInt_Click;
             // 
             // lblDes
             // 
@@ -249,17 +280,39 @@
             // 
             // txtVlr
             // 
-            txtVlr.Location = new Point(184, 192);
+            txtVlr.Location = new Point(173, 192);
             txtVlr.Name = "txtVlr";
-            txtVlr.Size = new Size(121, 23);
+            txtVlr.Size = new Size(138, 23);
             txtVlr.TabIndex = 19;
             txtVlr.KeyPress += txtVlr_KeyPress;
+            // 
+            // cbTipo
+            // 
+            cbTipo.BackColor = SystemColors.InactiveCaption;
+            cbTipo.Enabled = false;
+            cbTipo.FormattingEnabled = true;
+            cbTipo.Items.AddRange(new object[] { "AGUA", "LUZ", "ALUGUEL", "TELEFONE", "INTERNET", "GASOLINA", "COMIDA", "USO INTERNO", "EQUIPAMENTOS", "COMPUTADOR" });
+            cbTipo.Location = new Point(23, 147);
+            cbTipo.Name = "cbTipo";
+            cbTipo.Size = new Size(121, 23);
+            cbTipo.TabIndex = 21;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(52, 129);
+            label4.Name = "label4";
+            label4.Size = new Size(32, 15);
+            label4.TabIndex = 20;
+            label4.Text = "TIPO";
             // 
             // FinMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(331, 306);
+            ClientSize = new Size(339, 306);
+            Controls.Add(cbTipo);
+            Controls.Add(label4);
             Controls.Add(txtVlr);
             Controls.Add(txtbDes);
             Controls.Add(lblDes);
@@ -281,6 +334,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FinMenu";
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -312,5 +366,9 @@
         private Label lblDes;
         private TextBox txtbDes;
         private TextBox txtVlr;
+        private ComboBox cbTipo;
+        private Label label4;
+        private RadioButton rdUsoInt;
+        private Label label5;
     }
 }

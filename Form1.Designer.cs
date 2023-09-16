@@ -49,6 +49,7 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tpFin = new TabPage();
+            btnPesquisa = new Button();
             cbFiltro = new ComboBox();
             checkBox1 = new CheckBox();
             button4 = new Button();
@@ -76,7 +77,6 @@
             label3 = new Label();
             label2 = new Label();
             tabPage3 = new TabPage();
-            btnPesquisa = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -370,6 +370,16 @@
             tpFin.TabIndex = 1;
             tpFin.UseVisualStyleBackColor = true;
             // 
+            // btnPesquisa
+            // 
+            btnPesquisa.Location = new Point(900, 124);
+            btnPesquisa.Name = "btnPesquisa";
+            btnPesquisa.Size = new Size(137, 23);
+            btnPesquisa.TabIndex = 28;
+            btnPesquisa.Text = "Pesquisar";
+            btnPesquisa.UseVisualStyleBackColor = true;
+            btnPesquisa.Click += btnPesquisa_Click;
+            // 
             // cbFiltro
             // 
             cbFiltro.FormattingEnabled = true;
@@ -422,9 +432,7 @@
             // dgvFin
             // 
             dgvFin.AllowUserToOrderColumns = true;
-            dgvFin.AutoGenerateColumns = false;
             dgvFin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFin.DataSource = functionsBindingSource;
             dgvFin.Location = new Point(11, 152);
             dgvFin.Name = "dgvFin";
             dgvFin.RowTemplate.Height = 25;
@@ -626,16 +634,6 @@
             tabPage3.Size = new Size(1202, 645);
             tabPage3.TabIndex = 2;
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnPesquisa
-            // 
-            btnPesquisa.Location = new Point(900, 124);
-            btnPesquisa.Name = "btnPesquisa";
-            btnPesquisa.Size = new Size(137, 23);
-            btnPesquisa.TabIndex = 28;
-            btnPesquisa.Text = "Pesquisar";
-            btnPesquisa.UseVisualStyleBackColor = true;
-            btnPesquisa.Click += btnPesquisa_Click;
             // 
             // Form1
             // 

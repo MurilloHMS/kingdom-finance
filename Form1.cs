@@ -77,21 +77,32 @@ namespace CKFinance
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM Financeiro";
 
-            Functions functions = new Functions();
-            SqlConnection con = functions.selectQuery(query);
+            string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Murillo\\projects\\CKFinance\\CkFinance.mdf;Integrated Security=True";
 
-            using (SqlDataAdapter da = new SqlDataAdapter(query, con))
+            try
             {
-                using (DataTable dt = new DataTable())
+                SqlConnection con = new SqlConnection(connection);
+                con.Open();
+
+                var slqQuery = "SELECT * FROM Financeiro";
+                using (SqlDataAdapter da = new SqlDataAdapter(slqQuery, con))
                 {
-                    da.Fill(dt);
-                    dgvFin.DataSource = dt;
+                    using (DataTable dt = new DataTable())
+                    {
+                        da.Fill(dt);
+                        dgvFin.DataSource = dt;
+                    }
                 }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
-            
+
         }
     }
 }
