@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -110,9 +111,12 @@ namespace CKFinance
             if ((culto == "") || (culto == null) || culto == string.Empty)
             {
                 culto = "null";
+                query = "INSERT INTO Financeiro VALUES(" + valor + "," + culto + ",'" + entSai + "','" + tipo + "','" + mov + "','" + sqlFormattedDate + "'," + "null" + ",'" + "KINGDOM" + "','" + "KINGDOM" + "','" + des + "');";
             }
-
-            query = "INSERT INTO Financeiro VALUES(" + valor + "," + culto + ",'" + entSai + "','" + tipo + "','" + mov + "','" + sqlFormattedDate + "'," + "null" + ",'" + "KINGDOM" + "','" + "KINGDOM" + "','" + des + "');";
+            else
+            {
+                query = "INSERT INTO Financeiro VALUES(" + valor + ",'" + culto + "','" + entSai + "','" + tipo + "','" + mov + "','" + sqlFormattedDate + "'," + "null" + ",'" + "KINGDOM" + "','" + "KINGDOM" + "','" + des + "')";
+            }
             
 
             DialogResult dialogResult = MessageBox.Show("Deseja inserir os seguintes dados:\n\n" + "Tipo: " + tipo + "\nTipo Movimentação: " + mov + "\nEntrada/Saida: " + entSai
@@ -122,7 +126,8 @@ namespace CKFinance
             {
                 functions.query(query);
             }
-            
+
+            limpar();
         }
 
         private void txtVlr_KeyPress(object sender, KeyPressEventArgs e)

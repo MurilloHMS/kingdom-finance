@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
             button5 = new Button();
@@ -56,7 +55,6 @@
             button3 = new Button();
             btnIns = new Button();
             dgvFin = new DataGridView();
-            functionsBindingSource = new BindingSource(components);
             label11 = new Label();
             dtpFin = new DateTimePicker();
             label6 = new Label();
@@ -88,7 +86,6 @@
             tabControl1.SuspendLayout();
             tpFin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFin).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)functionsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -431,17 +428,16 @@
             // 
             // dgvFin
             // 
+            dgvFin.AllowUserToAddRows = false;
+            dgvFin.AllowUserToDeleteRows = false;
             dgvFin.AllowUserToOrderColumns = true;
             dgvFin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvFin.Location = new Point(11, 152);
             dgvFin.Name = "dgvFin";
+            dgvFin.ReadOnly = true;
             dgvFin.RowTemplate.Height = 25;
             dgvFin.Size = new Size(1188, 368);
             dgvFin.TabIndex = 22;
-            // 
-            // functionsBindingSource
-            // 
-            functionsBindingSource.DataSource = typeof(Properties.Functions);
             // 
             // label11
             // 
@@ -663,7 +659,6 @@
             tpFin.ResumeLayout(false);
             tpFin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFin).EndInit();
-            ((System.ComponentModel.ISupportInitialize)functionsBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -714,7 +709,6 @@
         private Button button5;
         private ComboBox cbFiltro;
         private CheckBox checkBox1;
-        private BindingSource functionsBindingSource;
         private Button btnPesquisa;
     }
 }

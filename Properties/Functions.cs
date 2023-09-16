@@ -48,7 +48,6 @@ namespace CKFinance.Properties
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 )
                 e.Handled = true;   
         }
-
-       
+        
     }
 }

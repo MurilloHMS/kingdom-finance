@@ -80,10 +80,10 @@ namespace CKFinance
 
             string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Murillo\\projects\\CKFinance\\CkFinance.mdf;Integrated Security=True";
             SqlConnection conDataBase = new SqlConnection(connection);
-            SqlCommand cmdDatabase = new SqlCommand("SELECT * FROM Financeiro",conDataBase);
+            SqlCommand cmdDatabase = new SqlCommand("SELECT * FROM Financeiro", conDataBase);
             try
             {
-               SqlDataAdapter sda = new SqlDataAdapter();
+                SqlDataAdapter sda = new SqlDataAdapter();
                 sda.SelectCommand = cmdDatabase;
                 DataTable dbDataset = new DataTable();
                 sda.Fill(dbDataset);
@@ -93,12 +93,15 @@ namespace CKFinance
                 dgvFin.DataSource = bSource;
                 sda.Update(dbDataset);
 
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
 
 
         }
