@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
             button5 = new Button();
@@ -53,14 +54,8 @@
             button4 = new Button();
             button3 = new Button();
             btnIns = new Button();
-            dataGridView1 = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            TIPO = new DataGridViewTextBoxColumn();
-            VALOR = new DataGridViewTextBoxColumn();
-            CULTO = new DataGridViewTextBoxColumn();
-            DATA = new DataGridViewTextBoxColumn();
-            ALTERACAO = new DataGridViewTextBoxColumn();
-            USUARIO = new DataGridViewTextBoxColumn();
+            dgvFin = new DataGridView();
+            functionsBindingSource = new BindingSource(components);
             label11 = new Label();
             dtpFin = new DateTimePicker();
             label6 = new Label();
@@ -81,6 +76,7 @@
             label3 = new Label();
             label2 = new Label();
             tabPage3 = new TabPage();
+            btnPesquisa = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -91,7 +87,8 @@
             panel3.SuspendLayout();
             tabControl1.SuspendLayout();
             tpFin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)functionsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -184,6 +181,7 @@
             // 
             button1.BackColor = Color.Transparent;
             button1.BackgroundImageLayout = ImageLayout.None;
+            button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -195,6 +193,7 @@
             button1.Size = new Size(47, 44);
             button1.TabIndex = 5;
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel7
             // 
@@ -338,12 +337,13 @@
             // 
             // tpFin
             // 
+            tpFin.Controls.Add(btnPesquisa);
             tpFin.Controls.Add(cbFiltro);
             tpFin.Controls.Add(checkBox1);
             tpFin.Controls.Add(button4);
             tpFin.Controls.Add(button3);
             tpFin.Controls.Add(btnIns);
-            tpFin.Controls.Add(dataGridView1);
+            tpFin.Controls.Add(dgvFin);
             tpFin.Controls.Add(label11);
             tpFin.Controls.Add(dtpFin);
             tpFin.Controls.Add(label6);
@@ -419,54 +419,21 @@
             btnIns.UseVisualStyleBackColor = true;
             btnIns.Click += button2_Click;
             // 
-            // dataGridView1
+            // dgvFin
             // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, TIPO, VALOR, CULTO, DATA, ALTERACAO, USUARIO });
-            dataGridView1.Location = new Point(11, 152);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1188, 368);
-            dataGridView1.TabIndex = 22;
+            dgvFin.AllowUserToOrderColumns = true;
+            dgvFin.AutoGenerateColumns = false;
+            dgvFin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFin.DataSource = functionsBindingSource;
+            dgvFin.Location = new Point(11, 152);
+            dgvFin.Name = "dgvFin";
+            dgvFin.RowTemplate.Height = 25;
+            dgvFin.Size = new Size(1188, 368);
+            dgvFin.TabIndex = 22;
             // 
-            // ID
+            // functionsBindingSource
             // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // TIPO
-            // 
-            TIPO.HeaderText = "TIPO";
-            TIPO.Name = "TIPO";
-            // 
-            // VALOR
-            // 
-            VALOR.HeaderText = "VALOR";
-            VALOR.Name = "VALOR";
-            // 
-            // CULTO
-            // 
-            CULTO.HeaderText = "CULTO";
-            CULTO.Name = "CULTO";
-            // 
-            // DATA
-            // 
-            DATA.FillWeight = 200F;
-            DATA.HeaderText = "DATA ENTRADA";
-            DATA.Name = "DATA";
-            DATA.Width = 200;
-            // 
-            // ALTERACAO
-            // 
-            ALTERACAO.HeaderText = "DATA ALTERAÇÃO";
-            ALTERACAO.Name = "ALTERACAO";
-            ALTERACAO.Width = 200;
-            // 
-            // USUARIO
-            // 
-            USUARIO.HeaderText = "USUARIO";
-            USUARIO.Name = "USUARIO";
+            functionsBindingSource.DataSource = typeof(Properties.Functions);
             // 
             // label11
             // 
@@ -660,6 +627,16 @@
             tabPage3.TabIndex = 2;
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnPesquisa
+            // 
+            btnPesquisa.Location = new Point(900, 124);
+            btnPesquisa.Name = "btnPesquisa";
+            btnPesquisa.Size = new Size(137, 23);
+            btnPesquisa.TabIndex = 28;
+            btnPesquisa.Text = "Pesquisar";
+            btnPesquisa.UseVisualStyleBackColor = true;
+            btnPesquisa.Click += btnPesquisa_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -687,7 +664,8 @@
             tabControl1.ResumeLayout(false);
             tpFin.ResumeLayout(false);
             tpFin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)functionsBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -731,19 +709,14 @@
         private Button button4;
         private Button button3;
         private Button btnIns;
-        private DataGridView dataGridView1;
+        private DataGridView dgvFin;
         private Label label11;
         private DateTimePicker dtpFin;
         private Label label6;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn TIPO;
-        private DataGridViewTextBoxColumn VALOR;
-        private DataGridViewTextBoxColumn CULTO;
-        private DataGridViewTextBoxColumn DATA;
-        private DataGridViewTextBoxColumn ALTERACAO;
-        private DataGridViewTextBoxColumn USUARIO;
         private Button button5;
         private ComboBox cbFiltro;
         private CheckBox checkBox1;
+        private BindingSource functionsBindingSource;
+        private Button btnPesquisa;
     }
 }

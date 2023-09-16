@@ -1,3 +1,7 @@
+using CKFinance.Properties;
+using Microsoft.Data.SqlClient;
+using System.Data;
+
 namespace CKFinance
 {
     public partial class Form1 : Form
@@ -63,6 +67,31 @@ namespace CKFinance
         {
             Midias midias = new Midias();
             midias.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Config config = new Config();
+            config.Show();
+        }
+
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM Financeiro";
+
+            Functions functions = new Functions();
+            SqlConnection con = functions.selectQuery(query);
+
+            using (SqlDataAdapter da = new SqlDataAdapter(query, con))
+            {
+                using (DataTable dt = new DataTable())
+                {
+                    da.Fill(dt);
+                    dgvFin.DataSource = dt;
+                }
+            }
+
+            
         }
     }
 }

@@ -29,5 +29,6 @@ namespace CKFinance
             string target = "https://www.facebook.com/kingdomcomunidade";
             functions.openMidias(target);
         }
+
     }
 }

@@ -34,7 +34,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             button1 = new Button();
-            txtOk = new TextBox();
+            txtId = new TextBox();
             label2 = new Label();
             label3 = new Label();
             cbCulEve = new ComboBox();
@@ -42,12 +42,12 @@
             rdSai = new RadioButton();
             button2 = new Button();
             button3 = new Button();
-            lblEve = new RadioButton();
-            radioButton2 = new RadioButton();
+            rdEve = new RadioButton();
+            rdCult = new RadioButton();
             panel2 = new Panel();
             panel3 = new Panel();
             lblDes = new Label();
-            textBox1 = new TextBox();
+            txtbDes = new TextBox();
             txtVlr = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -109,13 +109,14 @@
             button1.TabIndex = 3;
             button1.Text = "INSERIR";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // txtOk
+            // txtId
             // 
-            txtOk.Location = new Point(23, 90);
-            txtOk.Name = "txtOk";
-            txtOk.Size = new Size(77, 23);
-            txtOk.TabIndex = 4;
+            txtId.Location = new Point(23, 90);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(77, 23);
+            txtId.TabIndex = 4;
             // 
             // label2
             // 
@@ -129,16 +130,18 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(39, 174);
+            label3.Location = new Point(52, 174);
             label3.Name = "label3";
-            label3.Size = new Size(89, 15);
+            label3.Size = new Size(42, 15);
             label3.TabIndex = 7;
-            label3.Text = "CULTO/EVENTO";
+            label3.Text = "CULTO";
             // 
             // cbCulEve
             // 
+            cbCulEve.BackColor = SystemColors.InactiveCaption;
+            cbCulEve.Enabled = false;
             cbCulEve.FormattingEnabled = true;
-            cbCulEve.Items.AddRange(new object[] { "", "QUARTA", "DOMINGO", "EVENTO" });
+            cbCulEve.Items.AddRange(new object[] { "QUARTA", "DOMINGO" });
             cbCulEve.Location = new Point(23, 192);
             cbCulEve.Name = "cbCulEve";
             cbCulEve.Size = new Size(121, 23);
@@ -186,29 +189,29 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // lblEve
+            // rdEve
             // 
-            lblEve.AutoSize = true;
-            lblEve.Location = new Point(71, 2);
-            lblEve.Name = "lblEve";
-            lblEve.Size = new Size(67, 19);
-            lblEve.TabIndex = 14;
-            lblEve.TabStop = true;
-            lblEve.Text = "EVENTO";
-            lblEve.UseVisualStyleBackColor = true;
-            lblEve.CheckedChanged += lblEve_CheckedChanged;
+            rdEve.AutoSize = true;
+            rdEve.Location = new Point(71, 2);
+            rdEve.Name = "rdEve";
+            rdEve.Size = new Size(67, 19);
+            rdEve.TabIndex = 14;
+            rdEve.TabStop = true;
+            rdEve.Text = "EVENTO";
+            rdEve.UseVisualStyleBackColor = true;
+            rdEve.CheckedChanged += rdEve_CheckedChanged;
             // 
-            // radioButton2
+            // rdCult
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(3, 3);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(60, 19);
-            radioButton2.TabIndex = 13;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "CULTO";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            rdCult.AutoSize = true;
+            rdCult.Location = new Point(3, 3);
+            rdCult.Name = "rdCult";
+            rdCult.Size = new Size(60, 19);
+            rdCult.TabIndex = 13;
+            rdCult.TabStop = true;
+            rdCult.Text = "CULTO";
+            rdCult.UseVisualStyleBackColor = true;
+            rdCult.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // panel2
             // 
@@ -221,8 +224,8 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(radioButton2);
-            panel3.Controls.Add(lblEve);
+            panel3.Controls.Add(rdCult);
+            panel3.Controls.Add(rdEve);
             panel3.Location = new Point(173, 119);
             panel3.Name = "panel3";
             panel3.Size = new Size(148, 26);
@@ -237,12 +240,12 @@
             lblDes.TabIndex = 17;
             lblDes.Text = "DESCRIÇÃO";
             // 
-            // textBox1
+            // txtbDes
             // 
-            textBox1.Location = new Point(23, 236);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(288, 23);
-            textBox1.TabIndex = 18;
+            txtbDes.Location = new Point(23, 236);
+            txtbDes.Name = "txtbDes";
+            txtbDes.Size = new Size(288, 23);
+            txtbDes.TabIndex = 18;
             // 
             // txtVlr
             // 
@@ -250,6 +253,7 @@
             txtVlr.Name = "txtVlr";
             txtVlr.Size = new Size(121, 23);
             txtVlr.TabIndex = 19;
+            txtVlr.KeyPress += txtVlr_KeyPress;
             // 
             // FinMenu
             // 
@@ -257,7 +261,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(331, 306);
             Controls.Add(txtVlr);
-            Controls.Add(textBox1);
+            Controls.Add(txtbDes);
             Controls.Add(lblDes);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -266,7 +270,7 @@
             Controls.Add(cbCulEve);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(txtOk);
+            Controls.Add(txtId);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -293,7 +297,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button button1;
-        private TextBox txtOk;
+        private TextBox txtId;
         private Label label2;
         private Label label3;
         private ComboBox cbCulEve;
@@ -301,12 +305,12 @@
         private RadioButton rdSai;
         private Button button2;
         private Button button3;
-        private RadioButton lblEve;
-        private RadioButton radioButton2;
+        private RadioButton rdEve;
+        private RadioButton rdCult;
         private Panel panel2;
         private Panel panel3;
         private Label lblDes;
-        private TextBox textBox1;
+        private TextBox txtbDes;
         private TextBox txtVlr;
     }
 }
