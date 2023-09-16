@@ -79,21 +79,19 @@ namespace CKFinance
         {
 
             string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Murillo\\projects\\CKFinance\\CkFinance.mdf;Integrated Security=True";
-
+            SqlConnection conDataBase = new SqlConnection(connection);
+            SqlCommand cmdDatabase = new SqlCommand("SELECT * FROM Financeiro",conDataBase);
             try
             {
-                SqlConnection con = new SqlConnection(connection);
-                con.Open();
+               SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = cmdDatabase;
+                DataTable dbDataset = new DataTable();
+                sda.Fill(dbDataset);
+                BindingSource bSource = new BindingSource();
 
-                var slqQuery = "SELECT * FROM Financeiro";
-                using (SqlDataAdapter da = new SqlDataAdapter(slqQuery, con))
-                {
-                    using (DataTable dt = new DataTable())
-                    {
-                        da.Fill(dt);
-                        dgvFin.DataSource = dt;
-                    }
-                }
+                bSource.DataSource = dbDataset;
+                dgvFin.DataSource = bSource;
+                sda.Update(dbDataset);
 
             }
             catch (Exception ex)
