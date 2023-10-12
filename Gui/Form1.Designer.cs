@@ -702,7 +702,7 @@
         private Button button4;
         private Button button3;
         private Button btnIns;
-        private DataGridView dgvFin;
+        public DataGridView dgvFin;
         private Label label11;
         private DateTimePicker dtpFin;
         private Label label6;

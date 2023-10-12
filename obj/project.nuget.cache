@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7pr+vW7c2IcSHh0+wIIylH3pMK0Fz8f7PCfcvh4xD+TqWPtHpUKglRiZ9zWNmHsvt36/gI/2N0cvDeNLNIsEUw==",
+  "dgSpecHash": "7/YoWQMNGDbCAzPyHIm5gzBbpdN+L69AbPWmg226ci2fKb+LDUuspnl8qbxXz8auVwx37QwNx3wGMJaCbnA31g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Murillo\\projects\\CKFinance\\CKFinance.csproj",
+  "projectFilePath": "A:\\kingdom-finance\\CKFinance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Murillo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Murillo\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

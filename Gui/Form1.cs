@@ -1,4 +1,5 @@
 using CKFinance.Properties;
+using CKFinance.Database;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
@@ -77,31 +78,32 @@ namespace CKFinance
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
+            CKFinance.Database.Connection connection = new CKFinance.Database.Connection();
+            string connect = connection.dataConnection();
+            string select_data = "SELECT * FROM Financeiro";
+            SqlConnection con = null;
 
-            string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Murillo\\projects\\CKFinance\\CkFinance.mdf;Integrated Security=True";
-            SqlConnection conDataBase = new SqlConnection(connection);
-            SqlCommand cmdDatabase = new SqlCommand("SELECT * FROM Financeiro", conDataBase);
             try
             {
-                SqlDataAdapter sda = new SqlDataAdapter();
-                sda.SelectCommand = cmdDatabase;
-                DataTable dbDataset = new DataTable();
-                sda.Fill(dbDataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbDataset;
-                dgvFin.DataSource = bSource;
-                sda.Update(dbDataset);
-
-
-
+                con = new SqlConnection(connect);
+                SqlCommand sqlCommand = new SqlCommand(select_data, con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+                con.Open();
+                adapter.Fill(ds);
+                dgvFin.DataSource = ds.Tables[0];
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
 
 
         }

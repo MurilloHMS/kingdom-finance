@@ -31,22 +31,27 @@ namespace CKFinance
 
         private void button2_Click(object sender, EventArgs e)
         {
-            limpar();
+            clearData();
         }
 
-        public void limpar()
+        public void clearData()
         {
-            txtId.Text = null;
-            txtVlr.Text = null;
-            cbCulEve.Text = null;
-            rdEnt.Checked = false;
-            rdSai.Checked = false;
-            rdCult.Checked = false;
-            rdEve.Checked = false;
-            lblDes.Text = "DESCRIÇÃO";
-            txtbDes.Text = null;
-            rdUsoInt.Checked = false;
-            cbTipo.Text = null;
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Text = string.Empty;
+                }
+                else if (control is CheckBox)
+                {
+                    ((CheckBox)control).Checked = false;
+                }
+                else if (control is ComboBox)
+                {
+                    ((ComboBox)control).Text = string.Empty;
+                }
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -127,7 +132,7 @@ namespace CKFinance
                 functions.query(query);
             }
 
-            limpar();
+            clearData();
         }
 
         private void txtVlr_KeyPress(object sender, KeyPressEventArgs e)

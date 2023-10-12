@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Murillo\\projects\\CKFinance\\CKFinance.csproj": {}
+    "A:\\kingdom-finance\\CKFinance.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Murillo\\projects\\CKFinance\\CKFinance.csproj": {
+    "A:\\kingdom-finance\\CKFinance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Murillo\\projects\\CKFinance\\CKFinance.csproj",
+        "projectUniqueName": "A:\\kingdom-finance\\CKFinance.csproj",
         "projectName": "CKFinance",
-        "projectPath": "C:\\Users\\Murillo\\projects\\CKFinance\\CKFinance.csproj",
+        "projectPath": "A:\\kingdom-finance\\CKFinance.csproj",
         "packagesPath": "C:\\Users\\Murillo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Murillo\\projects\\CKFinance\\obj\\",
+        "outputPath": "A:\\kingdom-finance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

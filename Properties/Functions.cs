@@ -49,5 +49,6 @@ namespace CKFinance.Properties
                 e.Handled = true;   
         }
         
+        
     }
 }
